@@ -19,7 +19,7 @@ function App() {
   const [actualWord, setActualWord] = useState({});
   const [isCardOpen, setIsCardOpen] = useState(false);
   const [usedButton, setUsedButton] = useState("");
-  const [isOnlyNederland, setIsOnlyNederland] = useState(getFromLocalStorage("isOnlyNederland"));
+  const [isOnlyNederland, setIsOnlyNederland] = useState("");
   const [userLidWoordenRules, setUserLidWoordenRules] = useState({});
 
   useEffect(() => {
@@ -30,6 +30,14 @@ function App() {
   }, [mode, userLidWoordenRules]);
 
   useEffect(() => {
+    const newIsOnlyNederland = getFromLocalStorage("isOnlyNederland");
+    if (newIsOnlyNederland===null) {
+      setIsOnlyNederland(true)
+      saveToLocalStorage("isOnlyNederland", true);
+    } else {
+      setIsOnlyNederland(newIsOnlyNederland)
+
+    }
     const lidWoordenRules = getFromLocalStorage("lidWoordenRules");
     if (lidWoordenRules) {
       setUserLidWoordenRules(lidWoordenRules);

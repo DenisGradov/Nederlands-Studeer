@@ -27,7 +27,7 @@ const getLidwoordenRules = array =>{
     result[article] = {};
 
     for (const rule in array[article]) {
-      result[article][rule] = false;
+      result[article][rule] = true;
     }
   }
   return result;
