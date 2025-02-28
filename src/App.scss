@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$font-family: 'Poppins', sans-serif;
+$base-font-size: 16px;
+$base-line-height: 1.5;
+html, body, #root {
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  background: linear-gradient(180deg, #0F0D1B 0%, #06050A 100%), linear-gradient(180deg, #0C0A13 0%, #06050A 100%);
+  background-size: cover;
+  background-attachment: fixed;
+  color: white; /* Убедись, что текст не бледный */
+}
+
+.bg-gradient-modal {
+  background: linear-gradient(180deg, #0F0D1B 0%, #06050A 100%);
+}
+.bg-gradient-card {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.00) 0%, rgba(114, 68, 245, 0.20) 100%), rgba(255, 255, 255, 0.02);
+}
+.bg-gradient-card-reverse {
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgba(114, 68, 245, 0.20) 100%), rgba(255, 255, 255, 0.02);
+}
+
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffff20;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7244f5;
+  border-radius: 4px;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+
+  border: 2px solid #7244F560;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background-color: #7244f520;
+    border-color: #7244f5;
+  }
+
+  &:checked {
+    background-color: #7244F560;
+    border-color: #7244F560;
+    &:hover {
+      border-color: #7244f5;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 8px;
+      width: 5px;
+      height: 10px;
+      border: solid #ffffff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+
