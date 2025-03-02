@@ -3,16 +3,17 @@ import { getFromLocalStorage } from "./locale.js";
 
 //перевод текста
 const getText = (text) => {
-  if (!text || getFromLocalStorage("isOnlyNederland")) return text;
+  const isOnlyNederland = getFromLocalStorage("isOnlyNederland")==="true"
+  if (!text || isOnlyNederland) return text;
 
   if (ua[text]) {
-    if (getFromLocalStorage("isOnlyNederland")) return ua[text];
+    if (isOnlyNederland) return ua[text];
     return ua[text];
   }
 
   const clearText = text.replace(/\s+|["\-,]/g, '').toLowerCase();
   if (ua[clearText]) {
-    if (getFromLocalStorage("isOnlyNederland")) return ua[clearText];
+    if (isOnlyNederland) return ua[clearText];
     return ua[clearText];
   }
 
