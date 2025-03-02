@@ -13,13 +13,12 @@ import {
 } from "../../utils/main.js";
 import gamingMode from "../../constants/gamingModes.js";
 
-function Lidwoorden({ handleGoBack, selectedMode }) {
+function Lidwoorden({ handleGoBack, isOnlyNederland, selectedMode }) {
   const fallbackMode = gamingMode.find((m) => m.key === "lidwoorden");
   const usedMode = selectedMode || fallbackMode;
   const [actualWord, setActualWord] = useState({});
   const [isCardOpen, setIsCardOpen] = useState(false);
   const [usedButton, setUsedButton] = useState("");
-  const [isOnlyNederland, setIsOnlyNederland] = useState("");
   const [userLidWoordenRules, setUserLidWoordenRules] = useState({});
 
   useEffect(() => {
@@ -36,13 +35,7 @@ function Lidwoorden({ handleGoBack, selectedMode }) {
   }, []);
 
   useEffect(() => {
-    const newIsOnlyNederland = getFromLocalStorage("isOnlyNederland");
-    if (newIsOnlyNederland === null) {
-      setIsOnlyNederland(true);
-      saveToLocalStorage("isOnlyNederland", true);
-    } else {
-      setIsOnlyNederland(newIsOnlyNederland);
-    }
+
     const lidWoordenRules = getFromLocalStorage("lidWoordenRules");
     if (lidWoordenRules) {
       setUserLidWoordenRules(lidWoordenRules);
@@ -222,6 +215,7 @@ function Lidwoorden({ handleGoBack, selectedMode }) {
 
 Lidwoorden.propTypes = {
   handleGoBack: PropTypes.func.isRequired,
+  isOnlyNederland: PropTypes.bool.isRequired,
   selectedMode: PropTypes.object
 };
 

@@ -42,7 +42,6 @@ function App() {
   const handleChangeIsOnlyNederland = () => {
     const newVal = !isOnlyNederland;
     setIsOnlyNederland(newVal);
-    console.log(newVal)
     saveToLocalStorage("isOnlyNederland", newVal ? "true" : "false");
   };
 
@@ -76,6 +75,7 @@ function App() {
           path="/lidwoorden"
           element={
             <Lidwoorden
+              isOnlyNederland={isOnlyNederland}
               selectedMode={selectedMode}
               handleGoBack={handleGoBack}
             />
