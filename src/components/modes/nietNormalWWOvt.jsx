@@ -52,13 +52,16 @@ function NietNormalWWOvt({ handleGoBack, isOnlyNederland, selectedMode }) {
     }
   }, [endRange]);
 
-  const generateNewWord = () => {
+  const handleNewWordClick = () => {
     setIsCardOpen(false);
 
     setTimeout(() => {
-      const verb = getRandomVerbByRange(startRange, endRange);
-      setActualWord(verb);
+      generateNewWord();
     }, 250);
+  }
+  const generateNewWord = () => {
+      const verb = getRandomVerbByRange(startRange, endRange);
+      setActualWord(verb)
   };
 
   const handleFlipCard = () => {
@@ -114,7 +117,7 @@ function NietNormalWWOvt({ handleGoBack, isOnlyNederland, selectedMode }) {
             className="bg-[#7244F560] rounded-[8px] py-2 px-4 w-[80px]"
           />
           <button
-            onClick={generateNewWord}
+            onClick={handleNewWordClick}
             className="bg-[#7244F560] hover:bg-[#7244F520] rounded-[12px] text-[#DADADA] text-[20px] px-4 py-2 hover:scale-[1.03] opacity-95 duration-300 cursor-pointer select-none"
           >
             {getText("Nieuw woord")}
