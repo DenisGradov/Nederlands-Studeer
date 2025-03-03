@@ -2,7 +2,7 @@ const gamingMode = [
   {
   title: "Niet normaal werkwoorden OVT",
     description: "Onregelmatige werkwoorden moet je vertalen",
-    key: "niet-normal-ovt",
+    key: "niet-normal-ww-ovt",
 },
 {
   title: "Lidwoorden",

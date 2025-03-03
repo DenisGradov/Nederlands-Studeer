@@ -35,16 +35,7 @@ function Lidwoorden({ handleGoBack, isOnlyNederland, selectedMode }) {
     setActualWord(newWord);
   }, []);
 
-  useEffect(() => {
-    const lidWoordenRules = getFromLocalStorage("lidWoordenRules");
-    if (lidWoordenRules) {
-      setUserLidWoordenRules(lidWoordenRules);
-    } else {
-      const newUserLidWoordenRules = getLidwoordenRules(lidwoordenLijst);
-      setUserLidWoordenRules(newUserLidWoordenRules);
-      saveToLocalStorage("lidWoordenRules", newUserLidWoordenRules);
-    }
-  }, []);
+
 
   const handleChangeShowCard = (button) => {
     if (!isCardOpen) {
@@ -61,7 +52,7 @@ function Lidwoorden({ handleGoBack, isOnlyNederland, selectedMode }) {
         setActualWord(newWord);
         setUsedButton("");
       }
-    }, 200);
+    }, 250);
   };
 
   const handleToggleAllRules = (checked) => {

@@ -7,6 +7,7 @@ import gamingMode from "./constants/gamingModes.js";
 import { getFromLocalStorage, saveToLocalStorage } from "./utils/locale.js";
 
 import Lidwoorden from "./components/modes/lidwoorden.jsx";
+import NietNormalWWOvt from "./components/modes/nietNormalWWOvt.jsx";
 import "./App.scss";
 
 function App() {
@@ -75,6 +76,16 @@ function App() {
           path="/lidwoorden"
           element={
             <Lidwoorden
+              isOnlyNederland={isOnlyNederland}
+              selectedMode={selectedMode}
+              handleGoBack={handleGoBack}
+            />
+          }
+        />
+        <Route
+          path="/niet-normal-ww-ovt"
+          element={
+            <NietNormalWWOvt
               isOnlyNederland={isOnlyNederland}
               selectedMode={selectedMode}
               handleGoBack={handleGoBack}
